@@ -1,0 +1,29 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# Claude Code (configurações locais — não commitar)
+.claude/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependências (se usar npm futuramente)
+node_modules/
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.production
+
+# Build
+dist/
+build/

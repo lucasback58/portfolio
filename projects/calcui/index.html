@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CalcUI — Calculadora Dark</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #0F0F0F;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      padding: 1rem;
+    }
+
+    /* Barra de volta ao portfólio */
+    .back-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(26, 26, 46, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 0.6rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 100;
+      border-bottom: 1px solid #2A2A3E;
+    }
+    .back-bar a {
+      color: #A0A0B0;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.18s;
+    }
+    .back-bar a:hover { color: #6C63FF; }
+    .back-bar .sep { color: #2A2A3E; }
+    .back-bar .current { color: #6C63FF; font-size: 0.8rem; font-family: 'Courier New', monospace; }
+
+    /* Wrapper da calculadora */
+    .calc-wrapper {
+      margin-top: 4rem;
+      width: 100%;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Header do projeto */
+    .project-header {
+      text-align: center;
+    }
+    .project-header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.03em;
+    }
+    .project-header p {
+      font-size: 0.8rem;
+      color: #555566;
+      margin-top: 0.25rem;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* Calculadora */
+    .calculator {
+      background: #1A1A2E;
+      border: 1px solid #2A2A3E;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(108, 99, 255, 0.12);
+    }
+
+    /* Display */
+    .display {
+      padding: 1.5rem 1.5rem 1rem;
+      background: #0F0F1A;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
+      gap: 0.3rem;
+    }
+    .display-expression {
+      font-size: 0.85rem;
+      color: #555566;
+      font-family: 'Courier New', monospace;
+      min-height: 1.2em;
+      word-break: break-all;
+      text-align: right;
+    }
+    .display-current {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      word-break: break-all;
+      text-align: right;
+      line-height: 1.1;
+      transition: font-size 0.1s;
+    }
+    .display-current.shrink { font-size: 1.6rem; }
+
+    /* Grade de botões */
+    .buttons-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: #0F0F0F;
+      padding: 1px;
+    }
+
+    .btn-calc {
+      background: #1A1A2E;
+      border: none;
+      color: #fff;
+      font-size: 1.1rem;
+      font-family: 'Courier New', monospace;
+      font-weight: 500;
+      padding: 1.1rem 0.5rem;
+      cursor: pointer;
+      transition: background 0.12s, color 0.12s, transform 0.08s;
+      user-select: none;
+    }
+    .btn-calc:hover  { background: #20203A; }
+    .btn-calc:active { transform: scale(0.93); }
+
+    .btn-calc.operator { color: #6C63FF; }
+    .btn-calc.operator:hover { background: rgba(108,99,255,0.12); }
+
+    .btn-calc.equals {
+      background: #6C63FF;
+      color: #fff;
+    }
+    .btn-calc.equals:hover { background: #5A52E0; }
+
+    .btn-calc.clear { color: #00D4AA; }
+    .btn-calc.clear:hover { background: rgba(0,212,170,0.1); }
+
+    .btn-calc.zero {
+      grid-column: span 1;
+    }
+
+    /* Painel de histórico */
+    .history-panel {
+      background: #1A1A2E;
+      border: 1px solid #2A2A3E;
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+    }
+    .history-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+    .history-title {
+      font-size: 0.7rem;
+      font-family: 'Courier New', monospace;
+      color: #555566;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .history-clear {
+      font-size: 0.7rem;
+      font-family: 'Courier New', monospace;
+      color: #555566;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+    .history-clear:hover { color: #6C63FF; }
+    .history-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .history-item {
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      color: #A0A0B0;
+      text-align: right;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #1F1F38;
+    }
+    .history-item:last-child { border-bottom: none; }
+    .history-item .result { color: #fff; font-weight: 600; }
+    .history-empty {
+      font-family: 'Courier New', monospace;
+      font-size: 0.78rem;
+      color: #333344;
+      text-align: center;
+      padding: 0.5rem 0;
+    }
+
+    /* Atalhos de teclado */
+    .keyboard-hint {
+      text-align: center;
+      font-family: 'Courier New', monospace;
+      font-size: 0.7rem;
+      color: #333344;
+      padding-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="back-bar">
+    <a href="../../index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      dev.back
+    </a>
+    <span class="sep">/</span>
+    <span class="current">CalcUI</span>
+  </nav>
+
+  <div class="calc-wrapper">
+
+    <div class="project-header">
+      <h1>CalcUI</h1>
+      <p>calculadora dark · HTML + CSS + JS</p>
+    </div>
+
+    <div class="calculator" role="application" aria-label="Calculadora">
+
+      <div class="display" aria-live="polite">
+        <div class="display-expression" id="display-expression" aria-label="Expressão"></div>
+        <div class="display-current"    id="display-current"    aria-label="Valor atual">0</div>
+      </div>
+
+      <!--
+        Layout dos botões:
+        C    CE   %    ÷
+        7    8    9    ×
+        4    5    6    −
+        1    2    3    +
+        ±    0    .    =
+
+        Cada botão usa data-action para o JS identificar a ação.
+      -->
+      <div class="buttons-grid" id="buttons-grid">
+        <button class="btn-calc clear"    data-action="clear-all"  aria-label="Limpar tudo">C</button>
+        <button class="btn-calc clear"    data-action="clear-entry" aria-label="Apagar último dígito">CE</button>
+        <button class="btn-calc operator" data-action="percent"    aria-label="Porcentagem">%</button>
+        <button class="btn-calc operator" data-action="operator" data-value="÷" aria-label="Dividir">÷</button>
+
+        <button class="btn-calc" data-action="digit" data-value="7">7</button>
+        <button class="btn-calc" data-action="digit" data-value="8">8</button>
+        <button class="btn-calc" data-action="digit" data-value="9">9</button>
+        <button class="btn-calc operator" data-action="operator" data-value="×" aria-label="Multiplicar">×</button>
+
+        <button class="btn-calc" data-action="digit" data-value="4">4</button>
+        <button class="btn-calc" data-action="digit" data-value="5">5</button>
+        <button class="btn-calc" data-action="digit" data-value="6">6</button>
+        <button class="btn-calc operator" data-action="operator" data-value="−" aria-label="Subtrair">−</button>
+
+        <button class="btn-calc" data-action="digit" data-value="1">1</button>
+        <button class="btn-calc" data-action="digit" data-value="2">2</button>
+        <button class="btn-calc" data-action="digit" data-value="3">3</button>
+        <button class="btn-calc operator" data-action="operator" data-value="+" aria-label="Somar">+</button>
+
+        <button class="btn-calc" data-action="toggle-sign" aria-label="Alternar sinal">±</button>
+        <button class="btn-calc" data-action="digit" data-value="0">0</button>
+        <button class="btn-calc" data-action="decimal" aria-label="Vírgula decimal">.</button>
+        <button class="btn-calc equals" data-action="equals" aria-label="Calcular">=</button>
+      </div>
+
+    </div><!-- /calculator -->
+
+    <!-- Painel de histórico das últimas 5 operações -->
+    <div class="history-panel" aria-label="Histórico de operações">
+      <div class="history-header">
+        <span class="history-title">Histórico</span>
+        <button class="history-clear" id="history-clear" aria-label="Limpar histórico">limpar</button>
+      </div>
+      <div class="history-list" id="history-list">
+        <p class="history-empty">Nenhuma operação ainda.</p>
+      </div>
+    </div>
+
+    <p class="keyboard-hint">Suporte a teclado: 0–9 · + − * / · Enter · Backspace · Esc</p>
+
+  </div><!-- /calc-wrapper -->
+
+  <script>
+    /* =============================================
+       Estado centralizado da calculadora
+       ============================================= */
+    const state = {
+      current:     '0',
+      previous:    '',
+      operator:    null,
+      expression:  '',
+      shouldReset: false,
+      history:     [],
+    };
+
+    /* Elementos do DOM */
+    const displayCurrent    = document.getElementById('display-current');
+    const displayExpression = document.getElementById('display-expression');
+    const historyList       = document.getElementById('history-list');
+
+    /* =============================================
+       Funções de atualização do display
+       ============================================= */
+    function updateDisplay() {
+      displayCurrent.textContent    = state.current;
+      displayExpression.textContent = state.expression;
+      /* Diminui fonte se o número for longo */
+      displayCurrent.classList.toggle('shrink', state.current.length > 10);
+    }
+
+    function renderHistory() {
+      if (state.history.length === 0) {
+        historyList.innerHTML = '<p class="history-empty">Nenhuma operação ainda.</p>';
+        return;
+      }
+      historyList.innerHTML = state.history
+        .slice(-5)
+        .reverse()
+        .map(item => `<div class="history-item">${item.expr} = <span class="result">${item.result}</span></div>`)
+        .join('');
+    }
+
+    /* =============================================
+       Lógica da calculadora
+       ============================================= */
+    function inputDigit(digit) {
+      if (state.shouldReset) {
+        state.current    = digit;
+        state.shouldReset = false;
+      } else {
+        /* Evita múltiplos zeros à esquerda */
+        state.current = state.current === '0' ? digit : state.current + digit;
+      }
+    }
+
+    function inputDecimal() {
+      if (state.shouldReset) { state.current = '0.'; state.shouldReset = false; return; }
+      if (!state.current.includes('.')) state.current += '.';
+    }
+
+    function inputOperator(op) {
+      /* Se já havia operador pendente, calcula antes de definir novo */
+      if (state.operator && !state.shouldReset) calculate(false);
+      state.previous   = state.current;
+      state.operator   = op;
+      state.expression = `${state.current} ${op}`;
+      state.shouldReset = true;
+    }
+
+    function calculate(addToHistory = true) {
+      if (!state.operator || !state.previous) return;
+      const a = parseFloat(state.previous);
+      const b = parseFloat(state.current);
+      let result;
+      switch (state.operator) {
+        case '+': result = a + b; break;
+        case '−': result = a - b; break;
+        case '×': result = a * b; break;
+        case '÷': result = b !== 0 ? a / b : 'Erro'; break;
+        default: return;
+      }
+      /* Arredonda ponto flutuante — evita 0.1+0.2=0.30000000000000004 */
+      const rounded = typeof result === 'number'
+        ? parseFloat(result.toPrecision(12)).toString()
+        : result;
+
+      if (addToHistory) {
+        state.history.push({ expr: `${state.previous} ${state.operator} ${state.current}`, result: rounded });
+        renderHistory();
+      }
+
+      const expr = state.expression + ' ' + state.current + ' =';
+      state.expression  = expr;
+      state.current     = rounded;
+      state.operator    = null;
+      state.previous    = '';
+      state.shouldReset = true;
+    }
+
+    function clearAll() {
+      state.current     = '0';
+      state.previous    = '';
+      state.operator    = null;
+      state.expression  = '';
+      state.shouldReset = false;
+    }
+
+    function clearEntry() {
+      if (state.current.length > 1) {
+        state.current = state.current.slice(0, -1);
+      } else {
+        state.current = '0';
+      }
+    }
+
+    function toggleSign() {
+      if (state.current === '0' || state.current === 'Erro') return;
+      state.current = state.current.startsWith('-')
+        ? state.current.slice(1)
+        : '-' + state.current;
+    }
+
+    function percent() {
+      const n = parseFloat(state.current);
+      if (isNaN(n)) return;
+      state.current = (n / 100).toString();
+    }
+
+    /* =============================================
+       Delegação de eventos — um listener para todos os botões
+       ============================================= */
+    document.getElementById('buttons-grid').addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-action]');
+      if (!btn) return;
+      const { action, value } = btn.dataset;
+      switch (action) {
+        case 'digit':        inputDigit(value);   break;
+        case 'decimal':      inputDecimal();       break;
+        case 'operator':     inputOperator(value); break;
+        case 'equals':       calculate();          break;
+        case 'clear-all':    clearAll();           break;
+        case 'clear-entry':  clearEntry();         break;
+        case 'toggle-sign':  toggleSign();         break;
+        case 'percent':      percent();            break;
+      }
+      updateDisplay();
+    });
+
+    document.getElementById('history-clear').addEventListener('click', () => {
+      state.history = [];
+      renderHistory();
+    });
+
+    /* =============================================
+       Suporte ao teclado
+       keyMap mapeia teclas para ações
+       ============================================= */
+    const keyMap = {
+      '0':'digit:0', '1':'digit:1', '2':'digit:2', '3':'digit:3',
+      '4':'digit:4', '5':'digit:5', '6':'digit:6', '7':'digit:7',
+      '8':'digit:8', '9':'digit:9',
+      '.':'decimal', ',':'decimal',
+      '+':'operator:+', '-':'operator:−', '*':'operator:×', '/':'operator:÷',
+      'Enter':'equals', '=':'equals',
+      'Backspace':'clear-entry',
+      'Escape':'clear-all',
+      '%':'percent',
+    };
+
+    document.addEventListener('keydown', (e) => {
+      const mapped = keyMap[e.key];
+      if (!mapped) return;
+      e.preventDefault();
+      const [action, value] = mapped.split(':');
+      switch (action) {
+        case 'digit':       inputDigit(value);   break;
+        case 'decimal':     inputDecimal();       break;
+        case 'operator':    inputOperator(value); break;
+        case 'equals':      calculate();          break;
+        case 'clear-entry': clearEntry();         break;
+        case 'clear-all':   clearAll();           break;
+        case 'percent':     percent();            break;
+      }
+      updateDisplay();
+    });
+
+    /* Render inicial */
+    updateDisplay();
+  </script>
+</body>
+</html>

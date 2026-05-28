@@ -1,0 +1,94 @@
+/*
+ * reset.css — CSS Reset Moderno
+ *
+ * Por que existe: navegadores têm estilos padrão diferentes entre si.
+ * Este arquivo normaliza esses estilos para que o layout seja consistente
+ * em todos os browsers (Chrome, Firefox, Safari, Edge).
+ *
+ * Baseado no "Modern CSS Reset" de Andy Bell.
+ */
+
+/* Remove margens e paddings padrão de todos os elementos */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Melhora a renderização de texto e permite ajuste de tamanho de fonte */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Scroll suave nativo para toda a página */
+  scroll-behavior: smooth;
+}
+
+/* Remove estilos padrão de lista (ul, ol) */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Imagens e mídia: nunca ultrapassam o container */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Remove estilos padrão de inputs e botões — herdam da fonte do body */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Evita que textos longos "quebrem" o layout em mobile */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Remove sublinhado padrão de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove estilo padrão de botões */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Garante que o body ocupa toda a altura da tela */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Remove animações para usuários que preferem movimento reduzido */
+/* Conceito: prefers-reduced-motion é uma media query de acessibilidade
+   que detecta quando o usuário configurou o sistema para reduzir animações */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

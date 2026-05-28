@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Primeiro Site — Lucas Back</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0F0F0F;
+      color: #fff;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Barra de volta ao portfólio */
+    .back-bar {
+      position: sticky; top: 0;
+      background: rgba(26, 26, 46, 0.97);
+      backdrop-filter: blur(8px);
+      padding: 0.6rem 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+      z-index: 100; border-bottom: 1px solid #2A2A3E;
+    }
+    .back-bar a {
+      color: #A0A0B0; text-decoration: none; font-size: 0.8rem;
+      font-family: 'Courier New', monospace;
+      display: flex; align-items: center; gap: 0.4rem;
+      transition: color 0.18s;
+    }
+    .back-bar a:hover { color: #6C63FF; }
+    .back-bar .sep { color: #2A2A3E; }
+    .back-bar .current { color: #6C63FF; font-size: 0.8rem; font-family: 'Courier New', monospace; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: radial-gradient(ellipse at 60% 40%, rgba(108,99,255,0.12) 0%, transparent 65%);
+      position: relative;
+    }
+    .hero-content { max-width: 620px; }
+
+    .hero-greeting {
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      color: #6C63FF;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero-name {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .hero-name .accent { color: #6C63FF; }
+
+    /* Efeito de digitação */
+    .hero-typing {
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+      color: #A0A0B0;
+      min-height: 1.6em;
+      margin-bottom: 2rem;
+    }
+    .typing-cursor {
+      display: inline-block;
+      color: #00D4AA;
+      animation: blink 1s step-end infinite;
+      margin-left: 1px;
+    }
+    @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(0,212,170,0.08);
+      border: 1px solid rgba(0,212,170,0.2);
+      border-radius: 999px;
+      padding: 0.35rem 1rem;
+      font-family: 'Courier New', monospace; font-size: 0.75rem; color: #00D4AA;
+      margin-bottom: 2rem;
+    }
+    .badge-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #00D4AA;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { transform: scale(1); opacity:1; }
+      50%      { transform: scale(0.85); opacity:0.7; }
+    }
+
+    .hero-cta {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.4rem; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; cursor: pointer; border: none;
+      transition: all 0.18s;
+    }
+    .btn-primary { background: #6C63FF; color: #fff; }
+    .btn-primary:hover { background: #5A52E0; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(108,99,255,0.35); }
+    .btn-outline { background: transparent; border: 1px solid #2A2A3E; color: #A0A0B0; }
+    .btn-outline:hover { border-color: #6C63FF; color: #fff; }
+
+    /* Scroll indicator */
+    .scroll-hint {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+      color: #333344; font-family: 'Courier New', monospace; font-size: 0.7rem;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+    /* Seção Sobre */
+    .section {
+      padding: 5rem 1.5rem;
+      max-width: 800px; margin: 0 auto;
+    }
+    .section-label {
+      font-family: 'Courier New', monospace; font-size: 0.75rem;
+      color: #6C63FF; text-transform: uppercase; letter-spacing: 0.12em;
+      margin-bottom: 0.75rem;
+    }
+    .section h2 {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 700; color: #fff; margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    .section p { color: #A0A0B0; line-height: 1.8; margin-bottom: 1rem; }
+    .section p:last-child { margin-bottom: 0; }
+
+    .divider {
+      border: none; border-top: 1px solid #2A2A3E;
+      max-width: 800px; margin: 0 auto;
+    }
+
+    /* Seção de aprendizado — com CSS counter */
+    .learning-section {
+      padding: 5rem 1.5rem;
+      background: #1A1A2E;
+    }
+    .learning-inner { max-width: 800px; margin: 0 auto; }
+    .learning-inner .section-label { /* herda */ }
+    .learning-inner h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; color: #fff; margin-bottom: 2rem; }
+
+    /* A lista usa counter do CSS — sem listas numeradas padrão */
+    .learning-list {
+      list-style: none;
+      counter-reset: step-counter;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .learning-list li {
+      counter-increment: step-counter;
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: #0F0F1A; border: 1px solid #2A2A3E;
+      border-radius: 12px; padding: 1rem 1.25rem;
+      transition: border-color 0.18s, transform 0.18s;
+    }
+    .learning-list li:hover {
+      border-color: rgba(108,99,255,0.35);
+      transform: translateX(4px);
+    }
+    /* Número gerado pelo counter CSS */
+    .learning-list li::before {
+      content: counter(step-counter, decimal-leading-zero);
+      font-family: 'Courier New', monospace; font-size: 1.1rem;
+      font-weight: 700; color: #6C63FF; min-width: 2rem; line-height: 1.5;
+    }
+    .learning-list li .item-content { flex: 1; }
+    .learning-list li strong { color: #fff; display: block; margin-bottom: 0.2rem; }
+    .learning-list li span { color: #A0A0B0; font-size: 0.88rem; }
+
+    /* Seção de contato */
+    .contact-section {
+      padding: 5rem 1.5rem;
+      text-align: center; max-width: 600px; margin: 0 auto;
+    }
+    .contact-section h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; color: #fff; margin-bottom: 1rem; }
+    .contact-section p { color: #A0A0B0; margin-bottom: 2rem; }
+
+    /* Footer */
+    footer {
+      text-align: center; padding: 2rem;
+      border-top: 1px solid #2A2A3E;
+      font-family: 'Courier New', monospace; font-size: 0.75rem; color: #333344;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="back-bar">
+    <a href="../../index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      dev.back
+    </a>
+    <span class="sep">/</span>
+    <span class="current">Meu Primeiro Site</span>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        <span class="badge-dot" aria-hidden="true"></span>
+        Estudante de ADS · Cruzeiro do Sul
+      </div>
+
+      <p class="hero-greeting">Olá, mundo! 👋</p>
+
+      <h1 class="hero-name">
+        Lucas <span class="accent">Back</span>
+      </h1>
+
+      <!-- Typing effect — frases rotativas sobre a jornada de aprendizado -->
+      <p class="hero-typing">
+        <span id="typing-text"></span><span class="typing-cursor" aria-hidden="true">|</span>
+      </p>
+
+      <div class="hero-cta">
+        <a href="#sobre" class="btn btn-primary">Saiba mais</a>
+        <a href="../../index.html" class="btn btn-outline">Ver portfólio completo</a>
+      </div>
+
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      scroll
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </section>
+
+
+  <!-- Sobre -->
+  <section class="section" id="sobre">
+    <p class="section-label">// sobre mim</p>
+    <h2>Quem é Lucas Back?</h2>
+    <p>
+      Sou estudante de Análise e Desenvolvimento de Sistemas na Cruzeiro do Sul,
+      no último semestre do curso. Meu foco principal é o desenvolvimento
+      <strong style="color:#fff">front-end</strong> — criar interfaces que combinam
+      bom design com código bem escrito.
+    </p>
+    <p>
+      Este foi meu primeiro projeto criado para praticar HTML, CSS e JavaScript
+      do zero. Cada linha aqui foi escrita manualmente para entender como as
+      tecnologias web funcionam juntas.
+    </p>
+    <p>
+      Estou buscando minha primeira oportunidade júnior em front-end, onde possa
+      crescer dentro de uma equipe e contribuir com o que já sei enquanto aprendo
+      com profissionais mais experientes.
+    </p>
+  </section>
+
+  <hr class="divider" />
+
+
+  <!-- Jornada de aprendizado com CSS counters -->
+  <div class="learning-section">
+    <div class="learning-inner">
+      <p class="section-label">// minha jornada</p>
+      <h2>O que estou aprendendo</h2>
+
+      <!--
+        CSS counter: a lista usa counter-reset + counter-increment no CSS.
+        Isso numera os itens automaticamente, sem números no HTML.
+        Útil para listas cujos itens podem ser reordenados sem alterar o HTML.
+      -->
+      <ul class="learning-list">
+        <li>
+          <div class="item-content">
+            <strong>HTML5 Semântico</strong>
+            <span>Estrutura de páginas com tags que têm significado real: header, nav, main, section, article, footer.</span>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <strong>CSS3 e Responsividade</strong>
+            <span>Flexbox, Grid, custom properties, media queries e a abordagem mobile-first.</span>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <strong>JavaScript ES6+</strong>
+            <span>Manipulação de DOM, eventos, arrow functions, template literals e módulos.</span>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <strong>Git e controle de versão</strong>
+            <span>Versionamento de código, commits com mensagens significativas e publicação no GitHub.</span>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <strong>React (em progresso)</strong>
+            <span>Componentes, props, state, hooks e o modelo mental de interfaces declarativas.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- Contato -->
+  <section class="contact-section" id="contato">
+    <p class="section-label">// contato</p>
+    <h2>Vamos conversar?</h2>
+    <p>
+      Estou em busca da primeira oportunidade júnior em front-end.<br />
+      Me envie um e-mail ou acesse meu portfólio completo.
+    </p>
+    <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:0.75rem;">
+      <a href="mailto:lucasback158@gmail.com" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        lucasback158@gmail.com
+      </a>
+      <a href="../../index.html" class="btn btn-outline">
+        Ver portfólio →
+      </a>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>&copy; 2026 Lucas Back · HTML + CSS + JavaScript puro · Primeiro projeto de estudo</p>
+  </footer>
+
+
+  <script>
+    /* =============================================
+       Typing effect — frases sobre a jornada de estudo
+       ============================================= */
+    const phrases = [
+      'Aprendendo front-end do zero.',
+      'HTML, CSS e JavaScript.',
+      'Construindo para aprender.',
+      'Estudante de ADS · Último semestre.',
+      'Buscando a primeira oportunidade.',
+    ];
+
+    const typingEl = document.getElementById('typing-text');
+    let phraseIndex = 0;
+    let charIndex   = 0;
+    let deleting    = false;
+
+    function type() {
+      const current = phrases[phraseIndex];
+
+      if (deleting) {
+        typingEl.textContent = current.slice(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingEl.textContent = current.slice(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let delay = deleting ? 30 : 60;
+
+      if (!deleting && charIndex === current.length) {
+        delay    = 2000;
+        deleting = true;
+      }
+      if (deleting && charIndex === 0) {
+        deleting     = false;
+        phraseIndex  = (phraseIndex + 1) % phrases.length;
+        delay        = 400;
+      }
+
+      setTimeout(type, delay);
+    }
+
+    setTimeout(type, 600);
+
+
+    /* =============================================
+       Smooth scroll com offset do header fixo
+       ============================================= */
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        const offset = 60; /* altura da back-bar */
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>
