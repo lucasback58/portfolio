@@ -6,7 +6,7 @@
 ![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?style=flat&logo=vercel&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Em%20desenvolvimento-6C63FF?style=flat)
 
-Portfólio profissional de **Lucas Back**, estudante de Análise e Desenvolvimento de Sistemas na Cruzeiro do Sul, desenvolvedor front-end em formação buscando primeira oportunidade.
+Portfólio profissional de **Lucas Back**, estudante de Análise e Desenvolvimento de Sistemas na Cruzeiro do Sul, desenvolvedor front-end em formação, em busca da minha primeira oportunidade.
 
 Construído com **HTML5, CSS3 e JavaScript puro** — sem frameworks, sem dependências externas.
 

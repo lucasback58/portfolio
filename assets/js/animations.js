@@ -75,7 +75,7 @@ function initTypingEffect() {
     'Apaixonado por interfaces.',
     'Estudante de ADS · Cruzeiro do Sul.',
     'Aprendendo React todo dia.',
-    'Buscando primeira oportunidade.',
+    'Em busca da minha primeira oportunidade.',
   ];
 
   let phraseIndex = 0;
