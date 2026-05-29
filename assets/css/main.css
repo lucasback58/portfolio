@@ -596,9 +596,13 @@ html.light-mode .nav-mobile {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 15%;
+  object-position: center 20%;
   border-radius: 50%;
   display: block;
+  image-rendering: high-quality;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .sobre-avatar img {
