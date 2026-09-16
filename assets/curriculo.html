@@ -32,6 +32,32 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
+        .actions-bar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .btn-download {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-download:hover {
+            background-color: #004999;
+        }
+
         header {
             border-bottom: 2px solid var(--primary-color);
             padding-bottom: 20px;
@@ -123,6 +149,22 @@
             color: var(--primary-color);
         }
 
+        /* Oculta elementos desnecessários na impressão ou download em PDF */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+            .actions-bar {
+                display: none !important;
+            }
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
@@ -137,6 +179,12 @@
 <body>
 
 <div class="container">
+    <div class="actions-bar">
+        <a href="curriculo-lucas-back.pdf" download class="btn-download" onclick="window.print(); return false;">
+            📥 Baixar PDF
+        </a>
+    </div>
+
     <header>
         <h1>Lucas Rocha dos Santos Back Xavier</h1>
         <div class="subtitle">Desenvolvedor Front-End Júnior | Desenvolvedor Web Júnior</div>
@@ -204,7 +252,7 @@
         <p>
             <span class="item-title">Graduação Tecnológica em Análise e Desenvolvimento de Sistemas</span><br>
             Universidade Cruzeiro do Sul | Concluído em Julho de 2026<br>
-            <em>Formação com foco em engenharia de software, algoritmos, estrutura de dados, redes e gerenciamento de bancos de dados.</em>
+            <em>Formação com foco em engenharia de software, algoritmos, estrutura de dados, redes de computadores e gerenciamento de bancos de dados.</em>
         </p>
     </section>
 
