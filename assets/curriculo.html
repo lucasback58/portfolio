@@ -6,35 +6,30 @@
     <title>Currículo - Lucas Rocha dos Santos Back Xavier</title>
     <style>
         :root {
-            --primary-color: #2563eb;
-            --dark-color: #1e293b;
-            --text-color: #334155;
-            --light-bg: #f8fafc;
-            --border-color: #e2e8f0;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            --primary-color: #2b3a4a;
+            --secondary-color: #0066cc;
+            --text-color: #333333;
+            --bg-color: #f4f6f8;
+            --container-bg: #ffffff;
+            --border-color: #e0e0e0;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
             color: var(--text-color);
-            background-color: var(--light-bg);
             line-height: 1.6;
-            padding: 40px 20px;
+            margin: 0;
+            padding: 20px;
         }
 
         .container {
             max-width: 850px;
             margin: 0 auto;
-            background: #ffffff;
+            background-color: var(--container-bg);
             padding: 40px;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
         header {
@@ -44,31 +39,28 @@
         }
 
         h1 {
-            color: var(--dark-color);
+            margin: 0 0 5px 0;
+            color: var(--primary-color);
             font-size: 26px;
-            letter-spacing: -0.5px;
-            margin-bottom: 5px;
         }
 
         .subtitle {
-            color: var(--primary-color);
             font-size: 16px;
             font-weight: 600;
-            margin-bottom: 12px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
         }
 
         .contact-info {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px 25px;
+            gap: 15px;
             font-size: 14px;
-            color: var(--text-color);
         }
 
         .contact-info a {
-            color: var(--primary-color);
+            color: var(--secondary-color);
             text-decoration: none;
-            font-weight: 500;
         }
 
         .contact-info a:hover {
@@ -80,62 +72,58 @@
         }
 
         h2 {
-            color: var(--dark-color);
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
+            font-size: 18px;
+            color: var(--primary-color);
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 5px;
             margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         p {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        li {
             font-size: 14px;
             margin-bottom: 8px;
         }
 
-        .skills-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            font-size: 14px;
-        }
-
-        .skills-item strong {
-            color: var(--dark-color);
-        }
-
-        .project-item, .academic-item {
-            margin-bottom: 15px;
-        }
-
-        .project-title, .academic-title {
-            font-weight: 600;
-            color: var(--dark-color);
-            font-size: 15px;
-        }
-
-        .tech-stack {
-            font-size: 13px;
+        .item-title {
+            font-weight: bold;
             color: var(--primary-color);
-            font-weight: 500;
-            margin-bottom: 4px;
         }
 
-        ul {
-            list-style-type: square;
-            padding-left: 20px;
+        .item-tech {
+            font-style: italic;
+            color: #666;
+            font-size: 13px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-category {
             font-size: 14px;
         }
 
-        li {
-            margin-bottom: 6px;
+        .skill-category strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--primary-color);
         }
 
         @media (max-width: 600px) {
-            body {
-                padding: 15px 10px;
-            }
             .container {
                 padding: 20px;
             }
@@ -148,85 +136,94 @@
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Lucas Rocha dos Santos Back Xavier</h1>
-            <div class="subtitle">Desenvolvedor Júnior de TI</div>
-            <div class="contact-info">
-                <span>📍 Sobradinho, Brasília – DF</span>
-                <span>📞 +55 (61) 99639-8783</span>
-                <span>✉️ <a href="mailto:lucasback158@gmail.com">lucasback158@gmail.com</a></span>
-                <span>🌐 <a href="https://linkedin.com/in/lucasback58" target="_blank">LinkedIn</a></span>
-                <span>💻 <a href="https://github.com/lucasback58" target="_blank">GitHub</a></span>
-                <span>🚀 <a href="https://portfolio-git-main-lucasback59.vercel.app/assets/curriculo.html" target="_blank">Portfólio</a></span>
+<div class="container">
+    <header>
+        <h1>Lucas Rocha dos Santos Back Xavier</h1>
+        <div class="subtitle">Desenvolvedor Front-End Júnior | Desenvolvedor Web Júnior</div>
+        <div class="contact-info">
+            <span>📍 Sobradinho, Brasília - DF</span>
+            <span>📞 +55 (61) 99639-8783</span>
+            <span>✉️ <a href="mailto:lucasback158@gmail.com">lucasback158@gmail.com</a></span>
+            <span>🌐 <a href="https://portfolio-git-main-lucasback59.vercel.app/" target="_blank">Portfólio</a></span>
+            <span>💻 <a href="https://github.com/lucasback58" target="_blank">GitHub</a></span>
+            <span>🔗 <a href="https://www.linkedin.com/in/lucasback58/" target="_blank">LinkedIn</a></span>
+        </div>
+    </header>
+
+    <section>
+        <h2>Resumo Profissional</h2>
+        <p>Desenvolvedor com sólida formação em Análise e Desenvolvimento de Sistemas e foco em desenvolvimento Front-End. Proficiente no uso de HTML5, CSS3, JavaScript (ES6+), Git e manipulação de bancos de dados SQL. Experiência prática acumulada na construção de aplicações web responsivas e estruturação de interfaces modernas com suporte a interatividade. Atualmente aprofundando conhecimentos no ecossistema React. Destaco-me pela capacidade de aprendizado rápido, organização de código e proatividade em resolução de problemas técnicos.</p>
+    </section>
+
+    <section>
+        <h2>Habilidades Técnicas</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <strong>Linguagens & Web</strong>
+                HTML5, CSS3, JavaScript (ES6+), Python
             </div>
-        </header>
-
-        <section>
-            <h2>Objetivo Profissional</h2>
-            <p>Busco uma oportunidade no cargo de <strong>Desenvolvedor Júnior</strong> ou áreas correlatas de Tecnologia da Informação (como Suporte Técnico ou Gestão de Banco de Dados)[cite: 1]. Graduado em Análise e Desenvolvimento de Sistemas, com base sólida em HTML5, CSS3, JavaScript, Python e SQL[cite: 1]. Destaco minha capacidade de aprendizado rápido, organização e comprometimento em colaborar ativamente com o crescimento da equipe e da empresa[cite: 1].</p>
-        </section>
-
-        <section>
-            <h2>Formação Acadêmica</h2>
-            <div class="academic-item">
-                <div class="academic-title">Tecnólogo em Análise e Desenvolvimento de Sistemas</div>
-                <p><em>Universidade Cruzeiro do Sul — Concluído em Julho de 2026</em></p>
-                <p><strong>Ênfase:</strong> Desenvolvimento de Software, Banco de Dados, Algoritmos, Redes de Computadores e Gerenciamento de Projetos de TI[cite: 1].</p>
+            <div class="skill-category">
+                <strong>Frameworks & Bibliotecas</strong>
+                React (em aprofundamento)
             </div>
-        </section>
-
-        <section>
-            <h2>Competências Técnicas</h2>
-            <div class="skills-list">
-                <div class="skills-item"><strong>Linguagens & Tecnologias:</strong> HTML5, CSS3, JavaScript, Python, SQL[cite: 1]</div>
-                <div class="skills-item"><strong>Ferramentas & Versionamento:</strong> Git, GitHub[cite: 1]</div>
-                <div class="skills-item"><strong>Conceitos:</strong> Layouts Responsivos, Programação Orientada a Objetos[cite: 1]</div>
-                <div class="skills-item"><strong>Em Aprendizado:</strong> React[cite: 1]</div>
+            <div class="skill-category">
+                <strong>Ferramentas & Conceitos</strong>
+                Layouts Responsivos, Git, GitHub, SQL, Programação Orientada a Objetos
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section>
-            <h2>Projetos de TI</h2>
-            
-            <div class="project-item">
-                <div class="project-title">Calculadora Moderna (CalcUI)</div>
-                <div class="tech-stack">HTML5 | CSS3 | JavaScript</div>
-                <p>Aplicação web de calculadora com interface em modo escuro (<em>dark mode</em>), histórico de operações e suporte à navegação via teclado[cite: 1].</p>
-            </div>
+    <section>
+        <h2>Projetos de Desenvolvimento</h2>
+        <ul>
+            <li>
+                <span class="item-title">CalcUI - Calculadora Moderna</span> <span class="item-tech">(HTML5, CSS3, JavaScript)</span>
+                <ul>
+                    <li>Aplicação interativa desenvolvida com suporte total ao uso via teclado e registro dinâmico de histórico de operações.</li>
+                    <li>Implementação de interface moderna em Dark Mode, priorizando usabilidade e manipulação eficiente do DOM.</li>
+                </ul>
+            </li>
+            <li style="margin-top: 10px;">
+                <span class="item-title">Portfólio Pessoal Web</span> <span class="item-tech">(HTML5, CSS3, JavaScript)</span>
+                <ul>
+                    <li>Plataforma responsiva para centralização de projetos acadêmicos e trajetória técnica.</li>
+                    <li>Arquitetura focada na otimização de navegação e aplicação de boas práticas de estilização CSS.</li>
+                </ul>
+            </li>
+            <li style="margin-top: 10px;">
+                <span class="item-title">Página de Prática Web</span> <span class="item-tech">(HTML5, CSS3, JavaScript)</span>
+                <ul>
+                    <li>Projeto focado no domínio de estrutura de marcação HTML5, estilização CSS3 e lógica de scripts para interface.</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
 
-            <div class="project-item">
-                <div class="project-title">Portfólio Pessoal</div>
-                <div class="tech-stack">HTML5 | CSS3 | JavaScript</div>
-                <p>Website desenvolvido para centralizar a apresentação de projetos, competências técnicas e perfil profissional[cite: 1].</p>
-            </div>
+    <section>
+        <h2>Formação Acadêmica</h2>
+        <p>
+            <span class="item-title">Graduação Tecnológica em Análise e Desenvolvimento de Sistemas</span><br>
+            Universidade Cruzeiro do Sul | Concluído em Julho de 2026<br>
+            <em>Formação com foco em engenharia de software, algoritmos, estrutura de dados, redes e gerenciamento de bancos de dados.</em>
+        </p>
+    </section>
 
-            <div class="project-item">
-                <div class="project-title">Página Web Pessoal (Primeiro Site)</div>
-                <div class="tech-stack">HTML5 | CSS3 | JavaScript</div>
-                <p>Projeto de introdução prática para consolidação de conceitos fundamentais do desenvolvimento web[cite: 1].</p>
-            </div>
-        </section>
+    <section>
+        <h2>Certificações e Cursos</h2>
+        <ul>
+            <li>Competências Digitais e Inteligência Artificial (84h) – Cruzeiro do Sul (2026)</li>
+            <li>Linguagem de Programação Python (18h) – Fundação Bradesco (2026)</li>
+            <li>Administrando Banco de Dados (15h) – Fundação Bradesco (2026)</li>
+            <li>Desenvolvimento Orientado a Objetos com Python (10h) – Fundação Bradesco (2026)</li>
+            <li>Criação de Sites com HTML, CSS e JavaScript (2h) – Fundação Bradesco (2026)</li>
+        </ul>
+    </section>
 
-        <section>
-            <h2>Certificações & Cursos Extracurriculares</h2>
-            <ul>
-                <li><strong>Competências Digitais e Inteligência Artificial</strong> (84h) — Universidade Cruzeiro do Sul (Maio/2026)[cite: 1]</li>
-                <li><strong>Linguagem de Programação Python</strong> (18h) — Fundação Bradesco / Escola Virtual (Fevereiro/2026)[cite: 1]</li>
-                <li><strong>Administração de Banco de Dados</strong> (15h) — Fundação Bradesco / Escola Virtual (Março/2026)[cite: 1]</li>
-                <li><strong>Desenvolvimento Orientado a Objetos com Python</strong> (10h) — Fundação Bradesco / Escola Virtual (Fevereiro/2026)[cite: 1]</li>
-                <li><strong>Crie um Site com HTML, CSS e JavaScript</strong> (2h) — Fundação Bradesco / Escola Virtual (Fevereiro/2026)[cite: 1]</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Idiomas & Habilidades Interpessoais</h2>
-            <ul>
-                <li><strong>Idiomas:</strong> Português (Nativo), Inglês Técnico (Leitura e compreensão de documentação)[cite: 1]</li>
-                <li><strong>Soft Skills:</strong> Proatividade, Organização, Comunicação assertiva, Aprendizado contínuo[cite: 1]</li>
-            </ul>
-        </section>
-    </div>
+    <section>
+        <h2>Idiomas</h2>
+        <p><strong>Português:</strong> Nativo | <strong>Inglês:</strong> Leitura Técnica</p>
+    </section>
+</div>
 
 </body>
 </html>
