@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Currículo — Lucas Back | Desenvolvedor Júnior</title>
+  <title>Currículo — Lucas Back | Desenvolvedor Júnior TI</title>
 
   <!-- Apenas Inter — fonte sóbria e legível para impressão -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -165,6 +165,11 @@
       color: var(--accent);
     }
 
+    .contact-item.muted {
+      font-style: italic;
+      opacity: 0.7;
+    }
+
     .skill-tag {
       display: inline-block;
       background-color: rgba(108, 99, 255, 0.08);
@@ -181,6 +186,15 @@
       display: flex;
       flex-wrap: wrap;
       gap: 4px;
+    }
+
+    .skills-subtitle {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 6px;
     }
 
     .language-item {
@@ -381,25 +395,221 @@
   <div class="page">
     <!-- COLUNA ESQUERDA (SIDEBAR) -->
     <aside class="sidebar">
-      
+
       <!-- CONTATO -->
       <div class="sidebar-section">
         <h4 class="sidebar-section-title">Contato</h4>
-        
+
         <div class="contact-item">
-          <svg xmlns="http://w3.org" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           lucasback158@gmail.com
         </div>
 
         <div class="contact-item">
-          <svg xmlns="http://w3.org" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           +55 (61) 99639-8783
         </div>
 
         <div class="contact-item">
-          <svg xmlns="http://w3.org" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Brasília, DF
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Sobradinho, Brasília — DF
         </div>
       </div>
 
       <!-- LINKS -->
+      <div class="sidebar-section">
+        <a class="contact-item" href="https://github.com/lucasback58" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          github.com/lucasback58
+        </a>
+        <a class="contact-item" href="https://www.linkedin.com/in/lucasback58/" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          linkedin.com/in/lucasback58
+        </a>
+      </div>
+
+      <!-- HABILIDADES -->
+      <div class="sidebar-section">
+        <h4 class="sidebar-section-title">Habilidades</h4>
+
+        <p class="skills-subtitle">Sei fazer</p>
+        <div class="skills-flex">
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Git</span>
+        </div>
+
+        <p class="skills-subtitle">Aprendendo</p>
+        <div class="skills-flex">
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">GitHub</span>
+          <span class="skill-tag">Responsividade</span>
+        </div>
+      </div>
+
+      <!-- IDIOMAS -->
+      <div class="sidebar-section">
+        <h4 class="sidebar-section-title">Idiomas</h4>
+        <div class="language-item">
+          Português <span class="language-level">Nativo</span>
+        </div>
+        <div class="language-item">
+          Inglês <span class="language-level">Básico (leitura)</span>
+        </div>
+      </div>
+
+      <!-- SOFT SKILLS -->
+      <div class="sidebar-section">
+        <h4 class="sidebar-section-title">Soft Skills</h4>
+        <div class="skills-flex">
+          <span class="skill-tag">Organização</span>
+          <span class="skill-tag">Proatividade</span>
+          <span class="skill-tag">Comunicação</span>
+          <span class="skill-tag">Aprendizado rápido</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- COLUNA DIREITA (CONTEÚDO PRINCIPAL) -->
+    <main class="main-content">
+
+      <!-- CABEÇALHO -->
+      <div class="resume-header">
+        <h1 class="resume-name">Lucas Rocha do Santos Back Xavier</h1>
+        <p class="resume-role">Desenvolvedor Júnior em TI · Tecnólogo em Análise e Desenvolvimento de Sistemas</p>
+      </div>
+
+      <!-- OBJETIVO PROFISSIONAL -->
+      <section class="cv-section">
+        <h2 class="cv-section-title">🎯 Objetivo Profissional</h2>
+        <p class="objective-text">
+          Busco minha primeira oportunidade CLT júnior na área de Tecnologia da Informação,
+          aberto a diferentes frentes (desenvolvimento, suporte, banco de dados, entre outras),
+          em uma empresa que valorize aprendizado contínuo e crescimento profissional. Trago base
+          técnica em HTML, CSS, JavaScript, Python e SQL, formação concluída em Análise e
+          Desenvolvimento de Sistemas, e comprometimento com evolução constante. Não tenho
+          experiência profissional prévia — ofereço dedicação, organização e disposição genuína
+          para aprender com a equipe.
+        </p>
+      </section>
+
+      <!-- EXPERIÊNCIA PROFISSIONAL -->
+      <section class="cv-section">
+        <h2 class="cv-section-title">💼 Experiência Profissional</h2>
+        <div class="cv-item">
+          <div class="cv-item-dot"></div>
+          <div class="cv-item-body">
+            <p class="cv-item-desc" style="font-style: italic;">
+              Em busca da primeira oportunidade na área de Tecnologia da Informação. Experiência
+              prática por meio de projetos pessoais e acadêmicos (ver seção Projetos).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMAÇÃO ACADÊMICA -->
+      <section class="cv-section">
+        <h2 class="cv-section-title">🎓 Formação Acadêmica</h2>
+        <div class="cv-item">
+          <div class="cv-item-dot"></div>
+          <div class="cv-item-body">
+            <p class="cv-item-title">
+              Tecnólogo em Análise e Desenvolvimento de Sistemas
+              <span class="status-pill done">Concluído</span>
+            </p>
+            <p class="cv-item-sub">Cruzeiro do Sul</p>
+            <p class="cv-item-period">2023 — Julho 2026</p>
+            <p class="cv-item-desc">
+              Formação com ênfase em desenvolvimento de software, banco de dados, algoritmos,
+              redes de computadores e gerenciamento de projetos de TI.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CERTIFICADOS -->
+      <section class="cv-section">
+        <h2 class="cv-section-title">🏅 Certificados</h2>
+
+        <div class="cv-item">
+          <div class="cv-item-dot"></div>
+          <div class="cv-item-body">
+            <p class="cv-item-title">Competências Digitais e Inteligência Artificial</p>
+            <p class="cv-item-sub">Cruzeiro do Sul · 84h</p>
+            <p class="cv-item-period">Maio 2026 <span class="status-pill done">Concluído</span></p>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-dot"></div>
+          <div class="cv-item-body">
+            <p class="cv-item-title">Linguagem de Programação Python — Básico</p>
+            <p class="cv-item-sub">Fundação Bradesco · Escola Virtual · 18h</p>
+            <p class="cv-item-period">Fevereiro 2026 <span class="status-pill done">Concluído</span></p>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-dot"></div>
+          <div class="cv-item-body">
+            <p class="cv-item-title">Administrando Banco de Dados</p>
+            <p class="cv-item-sub">Fundação Bradesco · Escola Virtual · 15h</p>
+            <p class="cv-item-period">Março 2026 <span class="status-pill done">Concluído</span></p>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-dot"></div>
+          <div class="cv-item-body">
+            <p class="cv-item-title">Desenvolvimento Orientado a Objetos com Python</p>
+            <p class="cv-item-sub">Fundação Bradesco · Escola Virtual · 10h</p>
+            <p class="cv-item-period">Fevereiro 2026 <span class="status-pill done">Concluído</span></p>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-dot"></div>
+          <div class="cv-item-body">
+            <p class="cv-item-title">Crie um Site com HTML, CSS e JavaScript</p>
+            <p class="cv-item-sub">Fundação Bradesco · Escola Virtual · 2h</p>
+            <p class="cv-item-period">Fevereiro 2026 <span class="status-pill done">Concluído</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJETOS -->
+      <section class="cv-section">
+        <h2 class="cv-section-title">&lt;/&gt; Projetos</h2>
+        <div class="projects-grid">
+
+          <div class="project-card">
+            <p class="project-title">CalcUI — Calculadora Moderna</p>
+            <p class="project-tech">HTML5 · CSS3 · JavaScript</p>
+            <p class="project-desc">Calculadora com interface dark, histórico de operações e suporte a teclado.</p>
+          </div>
+
+          <div class="project-card">
+            <p class="project-title">Portfólio Pessoal</p>
+            <p class="project-tech">HTML5 · CSS3 · JavaScript</p>
+            <p class="project-desc">Site de portfólio para apresentar projetos, habilidades e currículo.</p>
+          </div>
+
+          <div class="project-card">
+            <p class="project-title">Meu Primeiro Site</p>
+            <p class="project-tech">HTML5 · CSS3 · JavaScript</p>
+            <p class="project-desc">Página pessoal criada no início dos estudos para praticar HTML, CSS e JavaScript. Mostra a evolução desde o início.</p>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+
+</html>
