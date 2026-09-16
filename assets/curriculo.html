@@ -1,615 +1,232 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Currículo — Lucas Back | Desenvolvedor Júnior TI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo - Lucas Rocha dos Santos Back Xavier</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --dark-color: #1e293b;
+            --text-color: #334155;
+            --light-bg: #f8fafc;
+            --border-color: #e2e8f0;
+        }
 
-  <!-- Apenas Inter — fonte sóbria e legível para impressão -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  <style>
-    /* ================================================
-       VARIÁVEIS E RESET
-       ================================================ */
-    :root {
-      --accent: #6C63FF;      /* roxo — cor de identidade */
-      --text: #1A1A2E;
-      --text-muted: #5A5A7A;
-      --border: #D0D0E8;
-      --bg-sidebar: #F5F5FF;
-      --bg-white: #FFFFFF;
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
 
-      --font: 'Inter', sans-serif;
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
 
-      --page-width: 210mm;    /* A4 */
-      --page-height: 297mm;   /* A4 */
-    }
+        header {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        h1 {
+            color: var(--dark-color);
+            font-size: 26px;
+            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+        }
 
-    body {
-      font-family: var(--font);
-      background-color: #E8E8F0;
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-    }
+        .subtitle {
+            color: var(--primary-color);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
 
-    ul { list-style: none; }
-    a { text-decoration: none; color: inherit; }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px 25px;
+            font-size: 14px;
+            color: var(--text-color);
+        }
 
-    /* ================================================
-       BARRA DE AÇÕES — visível apenas na tela, some ao imprimir
-       ================================================ */
-    .print-bar {
-      background-color: var(--accent);
-      color: #fff;
-      padding: 12px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
 
-    .print-bar p {
-      font-size: 0.875rem;
-      opacity: 0.9;
-    }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
 
-    .print-bar p strong {
-      opacity: 1;
-    }
+        section {
+            margin-bottom: 25px;
+        }
 
-    .print-actions {
-      display: flex;
-      gap: 10px;
-    }
+        h2 {
+            color: var(--dark-color);
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+        }
 
-    .btn-print {
-      padding: 8px 20px;
-      border-radius: 999px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: all 0.2s;
-      font-family: var(--font);
-    }
+        p {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
 
-    .btn-print-primary {
-      background-color: #fff;
-      color: var(--accent);
-    }
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 14px;
+        }
 
-    .btn-print-primary:hover {
-      background-color: rgba(255,255,255,0.9);
-    }
+        .skills-item strong {
+            color: var(--dark-color);
+        }
 
-    .btn-back {
-      background-color: transparent;
-      color: #fff;
-      border-color: rgba(255,255,255,0.5);
-    }
+        .project-item, .academic-item {
+            margin-bottom: 15px;
+        }
 
-    .btn-back:hover {
-      border-color: #fff;
-    }
+        .project-title, .academic-title {
+            font-weight: 600;
+            color: var(--dark-color);
+            font-size: 15px;
+        }
 
-    /* ================================================
-       PÁGINA A4 — container principal
-       ================================================ */
-    .page {
-      width: var(--page-width);
-      min-height: var(--page-height);
-      background-color: var(--bg-white);
-      margin: 24px auto;
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.15);
-    }
+        .tech-stack {
+            font-size: 13px;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
 
-    /* ================================================
-       SIDEBAR — coluna esquerda
-       ================================================ */
-    .sidebar {
-      background-color: var(--bg-sidebar);
-      border-right: 2px solid var(--accent);
-      padding: 32px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+            font-size: 14px;
+        }
 
-    .sidebar-section {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+        li {
+            margin-bottom: 6px;
+        }
 
-    .sidebar-section-title {
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 6px;
-      margin-bottom: 2px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      line-height: 1.4;
-      word-break: break-word;
-    }
-
-    .contact-item svg {
-      flex-shrink: 0;
-      margin-top: 1px;
-      color: var(--accent);
-    }
-
-    .contact-item.muted {
-      font-style: italic;
-      opacity: 0.7;
-    }
-
-    .skill-tag {
-      display: inline-block;
-      background-color: rgba(108, 99, 255, 0.08);
-      border: 1px solid rgba(108, 99, 255, 0.2);
-      color: var(--accent);
-      font-size: 0.68rem;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 4px;
-      margin-bottom: 4px;
-    }
-
-    .skills-flex {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-
-    .skills-subtitle {
-      font-size: 0.65rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-top: 6px;
-    }
-
-    .language-item {
-      font-size: 0.75rem;
-      color: var(--text);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .language-level {
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      font-style: italic;
-    }
-
-    /* ================================================
-       COLUNA PRINCIPAL — conteúdo principal
-       ================================================ */
-    .main-content {
-      padding: 32px 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .resume-header {
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 16px;
-    }
-
-    .resume-name {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-
-    .resume-role {
-      font-size: 0.9rem;
-      color: var(--accent);
-      font-weight: 600;
-      margin-top: 4px;
-    }
-
-    .cv-section {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .cv-section-title {
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .objective-text {
-      font-size: 0.8rem;
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    .cv-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .cv-item-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: var(--accent);
-      margin-top: 5px;
-      flex-shrink: 0;
-    }
-
-    .cv-item-body {
-      flex: 1;
-    }
-
-    .cv-item-title {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.3;
-    }
-
-    .cv-item-sub {
-      font-size: 0.73rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    .cv-item-period {
-      font-size: 0.68rem;
-      color: var(--accent);
-      font-weight: 600;
-      letter-spacing: 0.04em;
-    }
-
-    .cv-item-desc {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-      line-height: 1.5;
-    }
-
-    .status-pill {
-      display: inline-block;
-      font-size: 0.62rem;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 999px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
-
-    .status-pill.done {
-      background-color: rgba(108, 99, 255, 0.1);
-      color: var(--accent);
-      border: 1px solid rgba(108, 99, 255, 0.2);
-    }
-
-    /* Grid de projetos — 2 colunas */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .project-card {
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 12px;
-      background-color: #FAFAFF;
-    }
-
-    .project-title {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .project-tech {
-      font-size: 0.65rem;
-      color: var(--accent);
-      font-weight: 500;
-      margin-top: 2px;
-    }
-
-    .project-desc {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      margin-top: 6px;
-      line-height: 1.4;
-    }
-
-    /* Ocultar barra de ações na impressão */
-    @media print {
-      .print-bar {
-        display: none !important;
-      }
-      body {
-        background-color: #fff;
-      }
-      .page {
-        margin: 0 !important;
-        box-shadow: none !important;
-        width: 100% !important;
-        min-height: 100vh !important;
-      }
-    }
-  </style>
+        @media (max-width: 600px) {
+            body {
+                padding: 15px 10px;
+            }
+            .container {
+                padding: 20px;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-  <!-- Barra de utilitários superior -->
-  <div class="print-bar">
-    <p>Modo de Visualização de Currículo — Pressione <strong>Imprimir</strong> para salvar em PDF.</p>
-    <div class="print-actions">
-      <a href="../index.html" class="btn-print btn-back">Voltar ao Portfólio</a>
-      <button class="btn-print btn-print-primary" onclick="window.print()">Imprimir / Salvar PDF</button>
+    <div class="container">
+        <header>
+            <h1>Lucas Rocha dos Santos Back Xavier</h1>
+            <div class="subtitle">Desenvolvedor Júnior de TI</div>
+            <div class="contact-info">
+                <span>📍 Sobradinho, Brasília – DF</span>
+                <span>📞 +55 (61) 99639-8783</span>
+                <span>✉️ <a href="mailto:lucasback158@gmail.com">lucasback158@gmail.com</a></span>
+                <span>🌐 <a href="https://linkedin.com/in/lucasback58" target="_blank">LinkedIn</a></span>
+                <span>💻 <a href="https://github.com/lucasback58" target="_blank">GitHub</a></span>
+                <span>🚀 <a href="https://portfolio-git-main-lucasback59.vercel.app/assets/curriculo.html" target="_blank">Portfólio</a></span>
+            </div>
+        </header>
+
+        <section>
+            <h2>Objetivo Profissional</h2>
+            <p>Busco uma oportunidade no cargo de <strong>Desenvolvedor Júnior</strong> ou áreas correlatas de Tecnologia da Informação (como Suporte Técnico ou Gestão de Banco de Dados)[cite: 1]. Graduado em Análise e Desenvolvimento de Sistemas, com base sólida em HTML5, CSS3, JavaScript, Python e SQL[cite: 1]. Destaco minha capacidade de aprendizado rápido, organização e comprometimento em colaborar ativamente com o crescimento da equipe e da empresa[cite: 1].</p>
+        </section>
+
+        <section>
+            <h2>Formação Acadêmica</h2>
+            <div class="academic-item">
+                <div class="academic-title">Tecnólogo em Análise e Desenvolvimento de Sistemas</div>
+                <p><em>Universidade Cruzeiro do Sul — Concluído em Julho de 2026</em></p>
+                <p><strong>Ênfase:</strong> Desenvolvimento de Software, Banco de Dados, Algoritmos, Redes de Computadores e Gerenciamento de Projetos de TI[cite: 1].</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Competências Técnicas</h2>
+            <div class="skills-list">
+                <div class="skills-item"><strong>Linguagens & Tecnologias:</strong> HTML5, CSS3, JavaScript, Python, SQL[cite: 1]</div>
+                <div class="skills-item"><strong>Ferramentas & Versionamento:</strong> Git, GitHub[cite: 1]</div>
+                <div class="skills-item"><strong>Conceitos:</strong> Layouts Responsivos, Programação Orientada a Objetos[cite: 1]</div>
+                <div class="skills-item"><strong>Em Aprendizado:</strong> React[cite: 1]</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projetos de TI</h2>
+            
+            <div class="project-item">
+                <div class="project-title">Calculadora Moderna (CalcUI)</div>
+                <div class="tech-stack">HTML5 | CSS3 | JavaScript</div>
+                <p>Aplicação web de calculadora com interface em modo escuro (<em>dark mode</em>), histórico de operações e suporte à navegação via teclado[cite: 1].</p>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Portfólio Pessoal</div>
+                <div class="tech-stack">HTML5 | CSS3 | JavaScript</div>
+                <p>Website desenvolvido para centralizar a apresentação de projetos, competências técnicas e perfil profissional[cite: 1].</p>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Página Web Pessoal (Primeiro Site)</div>
+                <div class="tech-stack">HTML5 | CSS3 | JavaScript</div>
+                <p>Projeto de introdução prática para consolidação de conceitos fundamentais do desenvolvimento web[cite: 1].</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Certificações & Cursos Extracurriculares</h2>
+            <ul>
+                <li><strong>Competências Digitais e Inteligência Artificial</strong> (84h) — Universidade Cruzeiro do Sul (Maio/2026)[cite: 1]</li>
+                <li><strong>Linguagem de Programação Python</strong> (18h) — Fundação Bradesco / Escola Virtual (Fevereiro/2026)[cite: 1]</li>
+                <li><strong>Administração de Banco de Dados</strong> (15h) — Fundação Bradesco / Escola Virtual (Março/2026)[cite: 1]</li>
+                <li><strong>Desenvolvimento Orientado a Objetos com Python</strong> (10h) — Fundação Bradesco / Escola Virtual (Fevereiro/2026)[cite: 1]</li>
+                <li><strong>Crie um Site com HTML, CSS e JavaScript</strong> (2h) — Fundação Bradesco / Escola Virtual (Fevereiro/2026)[cite: 1]</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Idiomas & Habilidades Interpessoais</h2>
+            <ul>
+                <li><strong>Idiomas:</strong> Português (Nativo), Inglês Técnico (Leitura e compreensão de documentação)[cite: 1]</li>
+                <li><strong>Soft Skills:</strong> Proatividade, Organização, Comunicação assertiva, Aprendizado contínuo[cite: 1]</li>
+            </ul>
+        </section>
     </div>
-  </div>
-
-  <div class="page">
-    <!-- COLUNA ESQUERDA (SIDEBAR) -->
-    <aside class="sidebar">
-
-      <!-- CONTATO -->
-      <div class="sidebar-section">
-        <h4 class="sidebar-section-title">Contato</h4>
-
-        <div class="contact-item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          lucasback158@gmail.com
-        </div>
-
-        <div class="contact-item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          +55 (61) 99639-8783
-        </div>
-
-        <div class="contact-item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Sobradinho, Brasília — DF
-        </div>
-      </div>
-
-      <!-- LINKS -->
-      <div class="sidebar-section">
-        <a class="contact-item" href="https://github.com/lucasback58" target="_blank" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          github.com/lucasback58
-        </a>
-        <a class="contact-item" href="https://www.linkedin.com/in/lucasback58/" target="_blank" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          linkedin.com/in/lucasback58
-        </a>
-      </div>
-
-      <!-- HABILIDADES -->
-      <div class="sidebar-section">
-        <h4 class="sidebar-section-title">Habilidades</h4>
-
-        <p class="skills-subtitle">Sei fazer</p>
-        <div class="skills-flex">
-          <span class="skill-tag">HTML5</span>
-          <span class="skill-tag">CSS3</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">SQL</span>
-          <span class="skill-tag">Git</span>
-        </div>
-
-        <p class="skills-subtitle">Aprendendo</p>
-        <div class="skills-flex">
-          <span class="skill-tag">React</span>
-          <span class="skill-tag">GitHub</span>
-          <span class="skill-tag">Responsividade</span>
-        </div>
-      </div>
-
-      <!-- IDIOMAS -->
-      <div class="sidebar-section">
-        <h4 class="sidebar-section-title">Idiomas</h4>
-        <div class="language-item">
-          Português <span class="language-level">Nativo</span>
-        </div>
-        <div class="language-item">
-          Inglês <span class="language-level">Básico (leitura)</span>
-        </div>
-      </div>
-
-      <!-- SOFT SKILLS -->
-      <div class="sidebar-section">
-        <h4 class="sidebar-section-title">Soft Skills</h4>
-        <div class="skills-flex">
-          <span class="skill-tag">Organização</span>
-          <span class="skill-tag">Proatividade</span>
-          <span class="skill-tag">Comunicação</span>
-          <span class="skill-tag">Aprendizado rápido</span>
-        </div>
-      </div>
-
-    </aside>
-
-    <!-- COLUNA DIREITA (CONTEÚDO PRINCIPAL) -->
-    <main class="main-content">
-
-      <!-- CABEÇALHO -->
-      <div class="resume-header">
-        <h1 class="resume-name">Lucas Rocha do Santos Back Xavier</h1>
-        <p class="resume-role">Desenvolvedor Júnior em TI · Tecnólogo em Análise e Desenvolvimento de Sistemas</p>
-      </div>
-
-      <!-- OBJETIVO PROFISSIONAL -->
-      <section class="cv-section">
-        <h2 class="cv-section-title">🎯 Objetivo Profissional</h2>
-        <p class="objective-text">
-          Busco minha primeira oportunidade CLT júnior na área de Tecnologia da Informação,
-          aberto a diferentes frentes (desenvolvimento, suporte, banco de dados, entre outras),
-          em uma empresa que valorize aprendizado contínuo e crescimento profissional. Trago base
-          técnica em HTML, CSS, JavaScript, Python e SQL, formação concluída em Análise e
-          Desenvolvimento de Sistemas, e comprometimento com evolução constante. Não tenho
-          experiência profissional prévia — ofereço dedicação, organização e disposição genuína
-          para aprender com a equipe.
-        </p>
-      </section>
-
-      <!-- EXPERIÊNCIA PROFISSIONAL -->
-      <section class="cv-section">
-        <h2 class="cv-section-title">💼 Experiência Profissional</h2>
-        <div class="cv-item">
-          <div class="cv-item-dot"></div>
-          <div class="cv-item-body">
-            <p class="cv-item-desc" style="font-style: italic;">
-              Em busca da primeira oportunidade na área de Tecnologia da Informação. Experiência
-              prática por meio de projetos pessoais e acadêmicos (ver seção Projetos).
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- FORMAÇÃO ACADÊMICA -->
-      <section class="cv-section">
-        <h2 class="cv-section-title">🎓 Formação Acadêmica</h2>
-        <div class="cv-item">
-          <div class="cv-item-dot"></div>
-          <div class="cv-item-body">
-            <p class="cv-item-title">
-              Tecnólogo em Análise e Desenvolvimento de Sistemas
-              <span class="status-pill done">Concluído</span>
-            </p>
-            <p class="cv-item-sub">Cruzeiro do Sul</p>
-            <p class="cv-item-period">2023 — Julho 2026</p>
-            <p class="cv-item-desc">
-              Formação com ênfase em desenvolvimento de software, banco de dados, algoritmos,
-              redes de computadores e gerenciamento de projetos de TI.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- CERTIFICADOS -->
-      <section class="cv-section">
-        <h2 class="cv-section-title">🏅 Certificados</h2>
-
-        <div class="cv-item">
-          <div class="cv-item-dot"></div>
-          <div class="cv-item-body">
-            <p class="cv-item-title">Competências Digitais e Inteligência Artificial</p>
-            <p class="cv-item-sub">Cruzeiro do Sul · 84h</p>
-            <p class="cv-item-period">Maio 2026 <span class="status-pill done">Concluído</span></p>
-          </div>
-        </div>
-
-        <div class="cv-item">
-          <div class="cv-item-dot"></div>
-          <div class="cv-item-body">
-            <p class="cv-item-title">Linguagem de Programação Python — Básico</p>
-            <p class="cv-item-sub">Fundação Bradesco · Escola Virtual · 18h</p>
-            <p class="cv-item-period">Fevereiro 2026 <span class="status-pill done">Concluído</span></p>
-          </div>
-        </div>
-
-        <div class="cv-item">
-          <div class="cv-item-dot"></div>
-          <div class="cv-item-body">
-            <p class="cv-item-title">Administrando Banco de Dados</p>
-            <p class="cv-item-sub">Fundação Bradesco · Escola Virtual · 15h</p>
-            <p class="cv-item-period">Março 2026 <span class="status-pill done">Concluído</span></p>
-          </div>
-        </div>
-
-        <div class="cv-item">
-          <div class="cv-item-dot"></div>
-          <div class="cv-item-body">
-            <p class="cv-item-title">Desenvolvimento Orientado a Objetos com Python</p>
-            <p class="cv-item-sub">Fundação Bradesco · Escola Virtual · 10h</p>
-            <p class="cv-item-period">Fevereiro 2026 <span class="status-pill done">Concluído</span></p>
-          </div>
-        </div>
-
-        <div class="cv-item">
-          <div class="cv-item-dot"></div>
-          <div class="cv-item-body">
-            <p class="cv-item-title">Crie um Site com HTML, CSS e JavaScript</p>
-            <p class="cv-item-sub">Fundação Bradesco · Escola Virtual · 2h</p>
-            <p class="cv-item-period">Fevereiro 2026 <span class="status-pill done">Concluído</span></p>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROJETOS -->
-      <section class="cv-section">
-        <h2 class="cv-section-title">&lt;/&gt; Projetos</h2>
-        <div class="projects-grid">
-
-          <div class="project-card">
-            <p class="project-title">CalcUI — Calculadora Moderna</p>
-            <p class="project-tech">HTML5 · CSS3 · JavaScript</p>
-            <p class="project-desc">Calculadora com interface dark, histórico de operações e suporte a teclado.</p>
-          </div>
-
-          <div class="project-card">
-            <p class="project-title">Portfólio Pessoal</p>
-            <p class="project-tech">HTML5 · CSS3 · JavaScript</p>
-            <p class="project-desc">Site de portfólio para apresentar projetos, habilidades e currículo.</p>
-          </div>
-
-          <div class="project-card">
-            <p class="project-title">Meu Primeiro Site</p>
-            <p class="project-tech">HTML5 · CSS3 · JavaScript</p>
-            <p class="project-desc">Página pessoal criada no início dos estudos para praticar HTML, CSS e JavaScript. Mostra a evolução desde o início.</p>
-          </div>
-
-        </div>
-      </section>
-
-    </main>
-  </div>
 
 </body>
-
 </html>
