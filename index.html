@@ -9,7 +9,7 @@
   <meta name="author" content="Lucas Rocha do Santos Back Xavier" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph — como o link aparece ao compartilhar no LinkedIn e WhatsApp -->
+  <!-- Open Graph — visualização ao compartilhar -->
   <meta property="og:title" content="Lucas Back | Desenvolvedor Júnior" />
   <meta property="og:description" content="Portfólio profissional — projetos reais, lógica e evolução constante. Graduado em ADS em busca de novos desafios em TI." />
   <meta property="og:type" content="website" />
@@ -17,12 +17,12 @@
 
   <title>Lucas Back | Desenvolvedor Júnior</title>
 
-  <!-- Google Fonts: Sora (títulos), Inter (corpo), JetBrains Mono (código) -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <!-- Devicon CDN — ícones SVG de tecnologias -->
+  <!-- Devicon CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
   <!-- Estilos -->
@@ -33,19 +33,14 @@
 
 <body>
 
-  <!-- Barra de progresso de leitura — linha fina no topo da página -->
+  <!-- Barra de progresso de leitura -->
   <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
 
-  <!-- ================================================
-       HEADER — Navegação fixada no topo
-       ================================================ -->
+  <!-- HEADER -->
   <header id="header">
     <nav class="container">
-
-      <!-- Logo dev.back -->
       <a href="#hero" class="nav-logo">dev.<span>back</span></a>
 
-      <!-- Links de navegação — visíveis no desktop -->
       <ul class="nav-links">
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#habilidades">Habilidades</a></li>
@@ -54,18 +49,16 @@
         <li><a href="#contato">Contato</a></li>
       </ul>
 
-      <!-- Grupo direito: toggle de tema + hambúrguer -->
       <div class="nav-right">
         <button class="theme-toggle" id="theme-toggle" aria-label="Ativar modo claro">🌙</button>
         <button class="menu-mobile" aria-label="Abrir menu de navegação" aria-expanded="false">
           ☰
         </button>
       </div>
-
     </nav>
   </header>
 
-  <!-- Menu mobile — desliza para baixo ao abrir -->
+  <!-- Menu Mobile -->
   <nav class="nav-mobile" aria-label="Menu de navegação mobile">
     <a href="#sobre">Sobre</a>
     <a href="#habilidades">Habilidades</a>
@@ -74,43 +67,33 @@
     <a href="#contato">Contato</a>
   </nav>
 
-
   <main>
 
-    <!-- ================================================
-         HERO — Primeira impressão do visitante
-         ================================================ -->
+    <!-- HERO -->
     <section id="hero">
-
-      <!-- Orbe de glow decorativo — posicionado absoluto, aria-hidden -->
       <div class="hero-glow" aria-hidden="true"></div>
 
       <div class="container">
         <div class="hero-content">
 
-          <!-- Badge de disponibilidade com ponto pulsando -->
           <div class="hero-badge reveal">
             <span class="badge-dot" aria-hidden="true"></span>
             Aberto a oportunidades · Brasília, DF
           </div>
 
-          <!-- Título principal — "Back" recebe gradiente animado -->
           <h1 class="hero-title reveal reveal-delay-1">
             Olá, eu sou<br />
             Lucas <span class="gradient-text">Back</span>
           </h1>
 
-          <!-- Typing effect — frases rotacionadas via JS -->
           <div class="hero-role reveal reveal-delay-2">
             <span class="typing-text"></span><span class="cursor" aria-hidden="true">|</span>
           </div>
 
-          <!-- Tagline estática abaixo do typing -->
           <p class="hero-tagline-static reveal reveal-delay-3">
-            Graduado em Análise e Desenvolvimento de Sistemas pela Cruzeiro do Sul · Em busca da primeira oportunidade profissional.
+            Graduado em ADS · Cruzeiro do Sul · Em busca da minha primeira oportunidade
           </p>
 
-          <!-- Botões de ação principais -->
           <div class="hero-actions reveal reveal-delay-4">
             <a href="#projetos" class="btn btn-primary">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -128,36 +111,19 @@
             </a>
           </div>
 
-          <!-- Linha de tecnologias atuais -->
           <div class="hero-stack reveal reveal-delay-5">
             <span class="stack-label">stack atual</span>
             <div class="stack-icons">
-              <span class="stack-item">
-                <i class="devicon-html5-plain colored" aria-hidden="true"></i>
-                HTML
-              </span>
-              <span class="stack-item">
-                <i class="devicon-css3-plain colored" aria-hidden="true"></i>
-                CSS
-              </span>
-              <span class="stack-item">
-                <i class="devicon-javascript-plain colored" aria-hidden="true"></i>
-                JS
-              </span>
-              <span class="stack-item">
-                <i class="devicon-git-plain colored" aria-hidden="true"></i>
-                Git
-              </span>
-              <span class="stack-item">
-                <i class="devicon-react-original colored" aria-hidden="true"></i>
-                React
-              </span>
+              <span class="stack-item"><i class="devicon-html5-plain colored" aria-hidden="true"></i> HTML</span>
+              <span class="stack-item"><i class="devicon-css3-plain colored" aria-hidden="true"></i> CSS</span>
+              <span class="stack-item"><i class="devicon-javascript-plain colored" aria-hidden="true"></i> JS</span>
+              <span class="stack-item"><i class="devicon-git-plain colored" aria-hidden="true"></i> Git</span>
+              <span class="stack-item"><i class="devicon-react-original colored" aria-hidden="true"></i> React</span>
             </div>
           </div>
 
-        </div><!-- /hero-content -->
+        </div>
 
-        <!-- Decoração geométrica — visível apenas em desktop, parallax via JS -->
         <div class="hero-decoration" aria-hidden="true">
           <div class="circle-outer"></div>
           <div class="circle-inner"></div>
@@ -170,9 +136,8 @@
           </div>
         </div>
 
-      </div><!-- /container -->
+      </div>
 
-      <!-- Indicador de scroll animado -->
       <div class="scroll-indicator" aria-hidden="true">
         <span>scroll</span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -180,182 +145,100 @@
         </svg>
       </div>
 
-    </section><!-- /hero -->
+    </section>
 
-
-    <!-- ================================================
-         SOBRE — Apresentação pessoal honesta
-         ================================================ -->
+    <!-- SOBRE -->
     <section id="sobre" class="section-alt">
       <div class="container">
-
         <div class="sobre-grid">
 
-          <!-- Coluna da foto -->
           <div class="sobre-avatar reveal">
-            <img
-              src="assets/images/lucas-back.webp"
-              alt="Lucas Back — Desenvolvedor Júnior Graduado"
-              class="avatar-photo"
-              width="280"
-              height="280"
-              loading="eager"
-            />
-
-            <div class="avatar-badge badge-top">
-              🎓 Graduado em ADS
-            </div>
-            <div class="avatar-badge badge-bottom">
-              📍 Sobradinho, Brasília — DF
-            </div>
+            <img src="assets/images/lucas-back.webp" alt="Lucas Back — Desenvolvedor Júnior Graduado" class="avatar-photo" width="280" height="280" loading="eager" />
+            <div class="avatar-badge badge-top">🎓 Graduado em ADS</div>
+            <div class="avatar-badge badge-bottom">📍 Sobradinho, Brasília — DF</div>
           </div>
 
-          <!-- Coluna do texto biográfico -->
           <div class="sobre-texto">
             <h2 class="reveal">Olá, sou <span class="accent">Lucas Back</span></h2>
 
             <p class="reveal reveal-delay-1">
-              Possuo genuíno interesse por computação e iniciei minha trajetória com foco em Front-End, consolidando na faculdade a paixão por solucionar problemas complexos por meio de código. Sou graduado em <strong>Análise e Desenvolvimento de Sistemas</strong> pela Universidade Cruzeiro do Sul (Julho/2026).
+              Sou Lucas Back, graduado em Análise e Desenvolvimento de Sistemas, com foco em desenvolvimento Front-End. Busco minha primeira oportunidade como Desenvolvedor Júnior, destacando-me pela dedicação, facilidade de aprendizado, responsabilidade e disposição para enfrentar novos desafios.
             </p>
 
             <p class="reveal reveal-delay-2">
-              Atualmente, busco minha primeira oportunidade como Desenvolvedor Júnior. Mantendo uma base sólida em Front-End, permaneço aberto a atuar em diferentes frentes da Tecnologia da Informação, com facilidade para assimilar novas tecnologias rapidamente.
-            </p>
-
-            <p class="reveal reveal-delay-3">
-              Trabalho com dedicação, responsabilidade e forte aptidão para aprendizado contínuo e colaboração em equipe. Meu objetivo é integrar o time para somar, absorver a cultura da empresa e gerar valor técnico constante.
+              Tenho interesse em transformar problemas em soluções por meio da tecnologia e estou aberto a ampliar minha atuação em diferentes áreas da Tecnologia da Informação. Meu objetivo é contribuir com as equipes, evoluir continuamente e gerar valor para a empresa por meio de soluções eficientes e do comprometimento com os resultados.
             </p>
 
             <div class="chips reveal reveal-delay-4">
               <span class="chip">🎓 ADS · Cruzeiro do Sul</span>
               <span class="chip">📍 Brasília, DF</span>
-              <span class="chip">💻 Desenvolvimento Web</span>
-              <span class="chip">🗓 Graduado Jul/2026</span>
-              <span class="chip">⚛️ Praticando React</span>
+              <span class="chip">💻 Desenvolvimento</span>
+              <span class="chip">🗓 Graduado jul/2026</span>
+              <span class="chip">⚛️ Aprendendo React</span>
             </div>
           </div>
 
-        </div><!-- /sobre-grid -->
+        </div>
+      </div>
+    </section>
 
-      </div><!-- /container -->
-    </section><!-- /sobre -->
-
-
-    <!-- ================================================
-         HABILIDADES
-         ================================================ -->
+    <!-- HABILIDADES -->
     <section id="habilidades">
       <div class="container">
-
         <div class="section-heading">
           <h2 class="reveal">Habilidades</h2>
-          <p class="reveal reveal-delay-1">
-            Transparência técnica: competências consolidadas, conhecimentos em evolução e objetivos profissionais.
-          </p>
+          <p class="reveal reveal-delay-1">Transparência técnica: o que sei fazer, o que estou aprendendo e para onde vou.</p>
         </div>
 
         <div class="skills-groups">
 
-          <!-- GRUPO 1 — Sei fazer -->
           <div class="reveal">
             <div class="skills-group-title">
               <h3>Sei fazer</h3>
               <span class="group-badge sei">base sólida</span>
             </div>
             <div class="skills-grid">
-
               <div class="skill-card">
-                <div class="skill-icon">
-                  <i class="devicon-html5-plain colored" aria-hidden="true"></i>
-                </div>
-                <div>
-                  <div class="skill-name">HTML5</div>
-                  <span class="skill-status status-sei">Estrutura semântica e acessibilidade</span>
-                </div>
+                <div class="skill-icon"><i class="devicon-html5-plain colored" aria-hidden="true"></i></div>
+                <div><div class="skill-name">HTML5</div><span class="skill-status status-sei">Estrutura semântica</span></div>
               </div>
-
               <div class="skill-card">
-                <div class="skill-icon">
-                  <i class="devicon-css3-plain colored" aria-hidden="true"></i>
-                </div>
-                <div>
-                  <div class="skill-name">CSS3</div>
-                  <span class="skill-status status-sei">Layouts responsivos e estilização</span>
-                </div>
+                <div class="skill-icon"><i class="devicon-css3-plain colored" aria-hidden="true"></i></div>
+                <div><div class="skill-name">CSS3</div><span class="skill-status status-sei">Layouts e estilização</span></div>
               </div>
-
               <div class="skill-card">
-                <div class="skill-icon">
-                  <i class="devicon-javascript-plain colored" aria-hidden="true"></i>
-                </div>
-                <div>
-                  <div class="skill-name">JavaScript</div>
-                  <span class="skill-status status-sei">Lógica e manipulação do DOM</span>
-                </div>
+                <div class="skill-icon"><i class="devicon-javascript-plain colored" aria-hidden="true"></i></div>
+                <div><div class="skill-name">JavaScript</div><span class="skill-status status-sei">Lógica e DOM</span></div>
               </div>
-
               <div class="skill-card">
-                <div class="skill-icon">
-                  <i class="devicon-python-plain colored" aria-hidden="true"></i>
-                </div>
-                <div>
-                  <div class="skill-name">Python</div>
-                  <span class="skill-status status-sei">Fundamentos e POO</span>
-                </div>
+                <div class="skill-icon"><i class="devicon-python-plain colored" aria-hidden="true"></i></div>
+                <div><div class="skill-name">Python</div><span class="skill-status status-sei">Básico + POO</span></div>
               </div>
-
               <div class="skill-card">
-                <div class="skill-icon">
-                  <i class="devicon-mysql-plain colored" aria-hidden="true"></i>
-                </div>
-                <div>
-                  <div class="skill-name">Banco de Dados</div>
-                  <span class="skill-status status-sei">Modelagem e consultas SQL</span>
-                </div>
+                <div class="skill-icon"><i class="devicon-mysql-plain colored" aria-hidden="true"></i></div>
+                <div><div class="skill-name">Banco de Dados</div><span class="skill-status status-sei">Conceitos e SQL</span></div>
               </div>
-
               <div class="skill-card">
-                <div class="skill-icon">
-                  <i class="devicon-git-plain colored" aria-hidden="true"></i>
-                </div>
-                <div>
-                  <div class="skill-name">Git</div>
-                  <span class="skill-status status-sei">Versionamento e fluxo básico</span>
-                </div>
+                <div class="skill-icon"><i class="devicon-git-plain colored" aria-hidden="true"></i></div>
+                <div><div class="skill-name">Git</div><span class="skill-status status-sei">Iniciando</span></div>
               </div>
+            </div>
+          </div>
 
-            </div><!-- /skills-grid -->
-          </div><!-- /grupo 1 -->
-
-
-          <!-- GRUPO 2 — Estou aprendendo -->
           <div class="reveal">
             <div class="skills-group-title">
               <h3>Estou aprendendo</h3>
               <span class="group-badge aprendendo">em progresso</span>
             </div>
             <div class="skills-grid">
-
               <div class="skill-card">
-                <div class="skill-icon">
-                  <i class="devicon-react-original colored" aria-hidden="true"></i>
-                </div>
-                <div>
-                  <div class="skill-name">React</div>
-                  <span class="skill-status status-aprendendo">Foco principal</span>
-                </div>
+                <div class="skill-icon"><i class="devicon-react-original colored" aria-hidden="true"></i></div>
+                <div><div class="skill-name">React</div><span class="skill-status status-aprendendo">Foco principal</span></div>
               </div>
-
               <div class="skill-card">
-                <div class="skill-icon">
-                  <i class="devicon-github-original" style="color: #fff" aria-hidden="true"></i>
-                </div>
-                <div>
-                  <div class="skill-name">GitHub</div>
-                  <span class="skill-status status-aprendendo">Gestão de repositórios</span>
-                </div>
+                <div class="skill-icon"><i class="devicon-github-original" style="color: #fff" aria-hidden="true"></i></div>
+                <div><div class="skill-name">GitHub</div><span class="skill-status status-aprendendo">Em uso</span></div>
               </div>
-
               <div class="skill-card">
                 <div class="skill-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -364,12 +247,8 @@
                     <line x1="12" y1="17" x2="12" y2="21" />
                   </svg>
                 </div>
-                <div>
-                  <div class="skill-name">Responsividade</div>
-                  <span class="skill-status status-aprendendo">Mobile-First</span>
-                </div>
+                <div><div class="skill-name">Responsividade</div><span class="skill-status status-aprendendo">Mobile-first</span></div>
               </div>
-
               <div class="skill-card">
                 <div class="skill-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -380,91 +259,55 @@
                     <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
                   </svg>
                 </div>
-                <div>
-                  <div class="skill-name">UI/UX Básico</div>
-                  <span class="skill-status status-aprendendo">Prototipagem e Usabilidade</span>
-                </div>
+                <div><div class="skill-name">UI/UX Básico</div><span class="skill-status status-aprendendo">Fundamentos</span></div>
               </div>
+            </div>
+          </div>
 
-            </div><!-- /skills-grid -->
-          </div><!-- /grupo 2 -->
-
-
-          <!-- GRUPO 3 — Próximos passos -->
           <div class="reveal">
             <div class="skills-group-title">
               <h3>Próximos passos</h3>
               <span class="group-badge proximo">no roadmap</span>
             </div>
             <div class="skills-grid">
-
               <div class="skill-card">
-                <div class="skill-icon">
-                  <i class="devicon-typescript-plain colored" aria-hidden="true"></i>
-                </div>
-                <div>
-                  <div class="skill-name">TypeScript</div>
-                  <span class="skill-status status-proximo">Planejado</span>
-                </div>
+                <div class="skill-icon"><i class="devicon-typescript-plain colored" aria-hidden="true"></i></div>
+                <div><div class="skill-name">TypeScript</div><span class="skill-status status-proximo">Planejado</span></div>
               </div>
-
               <div class="skill-card">
-                <div class="skill-icon">
-                  <i class="devicon-nodejs-plain colored" aria-hidden="true"></i>
-                </div>
-                <div>
-                  <div class="skill-name">Node.js</div>
-                  <span class="skill-status status-proximo">Planejado</span>
-                </div>
+                <div class="skill-icon"><i class="devicon-nodejs-plain colored" aria-hidden="true"></i></div>
+                <div><div class="skill-name">Node.js</div><span class="skill-status status-proximo">Planejado</span></div>
               </div>
-
               <div class="skill-card">
-                <div class="skill-icon">
-                  <i class="devicon-figma-plain colored" aria-hidden="true"></i>
-                </div>
-                <div>
-                  <div class="skill-name">Figma</div>
-                  <span class="skill-status status-proximo">Planejado</span>
-                </div>
+                <div class="skill-icon"><i class="devicon-figma-plain colored" aria-hidden="true"></i></div>
+                <div><div class="skill-name">Figma</div><span class="skill-status status-proximo">Planejado</span></div>
               </div>
-
               <div class="skill-card">
-                <div class="skill-icon">
-                  <i class="devicon-jest-plain colored" aria-hidden="true"></i>
-                </div>
-                <div>
-                  <div class="skill-name">Testes</div>
-                  <span class="skill-status status-proximo">Planejado</span>
-                </div>
+                <div class="skill-icon"><i class="devicon-jest-plain colored" aria-hidden="true"></i></div>
+                <div><div class="skill-name">Testes</div><span class="skill-status status-proximo">Planejado</span></div>
               </div>
+            </div>
+          </div>
 
-            </div><!-- /skills-grid -->
-          </div><!-- /grupo 3 -->
+        </div>
+      </div>
+    </section>
 
-        </div><!-- /skills-groups -->
-
-      </div><!-- /container -->
-    </section><!-- /habilidades -->
-
-
-    <!-- ================================================
-         PROJETOS
-         ================================================ -->
+    <!-- PROJETOS -->
     <section id="projetos" class="section-alt">
       <div class="container">
 
         <div class="section-heading">
           <h2 class="reveal">Projetos</h2>
           <p class="reveal reveal-delay-1">
-            Projetos desenvolvidos para consolidar conceitos, praticar boas práticas e evidenciar minha evolução técnica.
+            Projetos desenvolvidos com o objetivo de consolidar conhecimentos, aplicar boas práticas de desenvolvimento e demonstrar minha evolução técnica.
           </p>
         </div>
 
         <div class="projetos-grid">
 
-          <!-- PROJETO 1 — CalcUI -->
+          <!-- CalcUI -->
           <article class="projeto-card reveal">
-
             <div class="projeto-card-header">
               <span class="projeto-number">01</span>
               <span class="projeto-status funcional">funcional</span>
@@ -490,8 +333,7 @@
 
             <div class="projeto-body">
               <h3>CalcUI</h3>
-              <p>Calculadora interativa desenvolvida com interface Dark moderna, suporte total à navegação por teclado e registro dinâmico do histórico de operações.</p>
-
+              <p>Calculadora com interface dark moderna, histórico de operações e suporte a digitação pelo teclado.</p>
               <div class="projeto-tags">
                 <span class="projeto-tag">HTML5</span>
                 <span class="projeto-tag">CSS3</span>
@@ -517,10 +359,8 @@
             </div>
           </article>
 
-
-          <!-- PROJETO 2 — Agenda Online -->
+          <!-- Agenda Online -->
           <article class="projeto-card reveal reveal-delay-1">
-
             <div class="projeto-card-header">
               <span class="projeto-number">02</span>
               <span class="projeto-status funcional">✓ Funcional</span>
@@ -545,14 +385,12 @@
 
             <div class="projeto-body">
               <h3>Agenda Online</h3>
-              <p>Aplicação web projetada para o gerenciamento eficiente de compromissos e tarefas diárias.</p>
-
+              <p>Aplicação web para gerenciamento de compromissos e tarefas com notificações visuais, filtros e persistência de dados.</p>
               <ul class="projeto-highlights">
-                <li>Manipulação dinâmica do DOM</li>
+                <li>Manipulação de DOM dinâmica</li>
                 <li>Notificações de tarefas próximas</li>
                 <li>Dados salvos com localStorage</li>
               </ul>
-
               <div class="projeto-tags">
                 <span class="projeto-tag">HTML5</span>
                 <span class="projeto-tag">CSS3</span>
@@ -578,10 +416,8 @@
             </div>
           </article>
 
-
-          <!-- PROJETO 3 — Meu Primeiro Site -->
+          <!-- Meu Primeiro Site -->
           <article class="projeto-card reveal reveal-delay-2">
-
             <div class="projeto-card-header">
               <span class="projeto-number">03</span>
               <span class="projeto-status estudo">estudo</span>
@@ -599,8 +435,7 @@
 
             <div class="projeto-body">
               <h3>Meu Primeiro Site</h3>
-              <p>Página pessoal construída no início dos estudos para aplicar conceitos fundamentais de HTML5, CSS3 e JavaScript, documentando o progresso prático.</p>
-
+              <p>Página pessoal criada no início dos estudos para praticar HTML, CSS e JavaScript. Mostra a evolução desde o início.</p>
               <div class="projeto-tags">
                 <span class="projeto-tag">HTML5</span>
                 <span class="projeto-tag">CSS3</span>
@@ -626,26 +461,21 @@
             </div>
           </article>
 
-        </div><!-- /projetos-grid -->
+        </div>
+      </div>
+    </section>
 
-      </div><!-- /container -->
-    </section><!-- /projetos -->
-
-
-    <!-- ================================================
-         FORMAÇÃO — Graduação + Certificados
-         ================================================ -->
+    <!-- FORMAÇÃO -->
     <section id="formacao">
       <div class="container">
 
         <div class="section-heading">
           <h2 class="reveal">Formação &amp; Certificados</h2>
           <p class="reveal reveal-delay-1">
-            Graduação em Análise e Desenvolvimento de Sistemas e certificações técnicas conquistadas.
+            Graduado em ADS e certificados conquistados durante o curso.
           </p>
         </div>
 
-        <!-- Timeline — graduação em destaque -->
         <div class="timeline">
           <div class="timeline-item featured reveal">
             <div class="timeline-dot" aria-hidden="true"></div>
@@ -659,22 +489,20 @@
                 <h3>Análise e Desenvolvimento de Sistemas</h3>
                 <p class="institution">Universidade Cruzeiro do Sul</p>
                 <p>
-                  Formação superior focada em engenharia de software, estruturas de dados, algoritmos, redes de computadores e gerenciamento de bancos de dados.
+                  Formação superior voltada ao desenvolvimento de soluções tecnológicas, com sólida base em engenharia de software, estruturas de dados, algoritmos, redes de computadores e gerenciamento de bancos de dados. A formação também contribuiu para o desenvolvimento do raciocínio lógico, da capacidade de resolução de problemas e da aplicação de boas práticas no desenvolvimento de sistemas.
                 </p>
                 <span class="status-badge concluido">Concluído · Julho de 2026</span>
               </div>
             </div>
           </div>
-        </div><!-- /timeline -->
+        </div>
 
-        <!-- Subsection de Certificados -->
         <div class="certs-heading reveal">
           <h3>Certificados</h3>
         </div>
 
         <div class="certs-grid">
 
-          <!-- Certificado 1 — IA e Competências Digitais -->
           <div class="cert-card reveal">
             <div class="cert-logo cruzeiro" aria-hidden="true">CS</div>
             <div class="cert-info">
@@ -688,7 +516,6 @@
             <span class="cert-badge">✓ Verificado</span>
           </div>
 
-          <!-- Certificado 2 — Python Básico -->
           <div class="cert-card reveal reveal-delay-1">
             <div class="cert-logo bradesco" aria-hidden="true">FB</div>
             <div class="cert-info">
@@ -702,7 +529,6 @@
             <span class="cert-badge">✓ Verificado</span>
           </div>
 
-          <!-- Certificado 3 — Banco de Dados -->
           <div class="cert-card reveal reveal-delay-2">
             <div class="cert-logo bradesco" aria-hidden="true">FB</div>
             <div class="cert-info">
@@ -716,7 +542,6 @@
             <span class="cert-badge">✓ Verificado</span>
           </div>
 
-          <!-- Certificado 4 — POO Python -->
           <div class="cert-card reveal reveal-delay-3">
             <div class="cert-logo bradesco" aria-hidden="true">FB</div>
             <div class="cert-info">
@@ -730,7 +555,6 @@
             <span class="cert-badge">✓ Verificado</span>
           </div>
 
-          <!-- Certificado 5 — HTML, CSS e JS -->
           <div class="cert-card reveal reveal-delay-4">
             <div class="cert-logo bradesco" aria-hidden="true">FB</div>
             <div class="cert-info">
@@ -744,36 +568,32 @@
             <span class="cert-badge">✓ Verificado</span>
           </div>
 
-        </div><!-- /certs-grid -->
+        </div>
 
-      </div><!-- /container -->
-    </section><!-- /formacao -->
+      </div>
+    </section>
 
-
-    <!-- ================================================
-         CONTATO
-         ================================================ -->
+    <!-- CONTATO -->
     <section id="contato" class="section-alt">
       <div class="container">
 
         <div class="section-heading">
-          <h2 class="reveal">Vamos conversar?</h2>
+          <h2 class="reveal">Pronto para o próximo desafio</h2>
           <p class="reveal reveal-delay-1">
-            Graduado em Análise e Desenvolvimento de Sistemas e focado em conquistar o primeiro desafio profissional na área de desenvolvimento. Se seu time busca alguém comprometido e com rápido aprendizado, estou à disposição para conversar.
+            Sou graduado em Análise e Desenvolvimento de Sistemas e busco minha primeira oportunidade como Desenvolvedor Júnior. Tenho foco em desenvolvimento Front-End, interesse por tecnologia e grande disposição para aprender, colaborar e transformar desafios em soluções eficientes.
+          </p>
+          <p class="reveal reveal-delay-2">
+            Estou aberto a novas oportunidades e conexões profissionais. Entre em contato para conversarmos.
           </p>
         </div>
 
         <div class="contato-grid">
 
-          <!-- Links sociais -->
           <div class="contato-info reveal">
             <h2>Entre em contato</h2>
-            <p>
-              Prefere contato direto? Me encontre pelos canais abaixo.
-            </p>
+            <p>Prefere contato direto? Me encontre pelos canais abaixo.</p>
 
             <div class="social-links">
-
               <a href="https://github.com/lucasback58" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Lucas Back">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
@@ -794,7 +614,6 @@
                 </div>
               </a>
 
-              <!-- E-mail -->
               <a href="mailto:lucasback158@gmail.com" class="social-link">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -806,7 +625,6 @@
                 </div>
               </a>
 
-              <!-- WhatsApp -->
               <a href="https://wa.me/5561996398783" class="social-link" target="_blank" rel="noopener noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
@@ -816,16 +634,11 @@
                   <div class="link-label">+55 61 99639-8783</div>
                 </div>
               </a>
+            </div>
+          </div>
 
-            </div><!-- /social-links -->
-          </div><!-- /contato-info -->
-
-
-          <!-- Formulário via FormSubmit.co -->
           <div class="contato-form reveal reveal-delay-1">
             <form action="https://formsubmit.co/lucasback158@gmail.com" method="POST" novalidate>
-
-              <!-- Configurações ocultas do FormSubmit -->
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_next" value="https://portfolio-five-omega-37.vercel.app/?enviado=true" />
               <input type="hidden" name="_subject" value="Nova mensagem do portfólio — Lucas Back" />
@@ -855,21 +668,15 @@
                 </svg>
                 Enviar mensagem
               </button>
-
             </form>
-          </div><!-- /contato-form -->
+          </div>
 
-        </div><!-- /contato-grid -->
-
-      </div><!-- /container -->
-    </section><!-- /contato -->
+        </div>
+      </div>
+    </section>
 
   </main>
 
-
-  <!-- ================================================
-       FOOTER
-       ================================================ -->
   <footer>
     <div class="container">
       <div class="footer-content">
@@ -881,15 +688,11 @@
     </div>
   </footer>
 
-
-  <!-- Cursor personalizado — dois elementos sobrepostos -->
   <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
   <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
 
-  <!-- Botão voltar ao topo — aparece após 400px de scroll -->
   <button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">↑</button>
 
-  <!-- Scripts -->
   <script defer src="assets/js/animations.js"></script>
   <script defer src="assets/js/main.js"></script>
 
